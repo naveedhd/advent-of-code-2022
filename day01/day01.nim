@@ -1,17 +1,12 @@
 import std/strutils
+import std/sequtils
 import std/algorithm
+import std/sugar
 
 let filename = "./input"
-
-var calorieSums: seq[int]
-var currentSum = 0
-
-for line in filename.lines:
-  if line.isEmptyOrWhiteSpace:
-    calorieSums.add(current_sum)
-    currentSum = 0
-  else:
-    currentSum += line.parseInt
+var calorieSums = collect:
+  for item in filename.readFile.split("\n\n"):
+    item.splitLines.map(parseInt).foldl(a + b)
 
 calorieSums.sort()
 

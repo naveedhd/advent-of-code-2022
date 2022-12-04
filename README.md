@@ -1,1 +1,1 @@
-advent-of-code2022 in nim
+advent-of-code-2022
